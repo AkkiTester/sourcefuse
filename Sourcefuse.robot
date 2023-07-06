@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation  Assignment SoureFuse
 Library    SeleniumLibrary
 #Library         DatabaseLibrary
 Test Setup    Open Browser With URL
@@ -14,12 +15,14 @@ open browser with URL
 
 *** Test Cases ***
 TestCase1
-
+    [Documentation]    Dirct Click Submit Button
+    [Tags]    Assignment
     Click Button    xpath://button[@type='submit']
 
 
 TestCase2
-
+    [Documentation]    Check all input fields
+    [Tags]    Assignment
     Page Should Contain Element      xpath:(//input[@type='text'])[1]
     Page Should Contain Element      xpath:(//input[@type='text'])[2]
     Page Should Contain Element      xpath:(//input[@type='email'])
@@ -37,7 +40,8 @@ TestCase2
     Page Should Contain Element      xpath://input[@id='notSure']
 
 TestCase3
-
+    [Documentation]    Submit the form after filling all details properly by using XPath only
+    [Tags]    Assignment
     Input Text          xpath:(//input[@type='text'])[1]    Akash
     Input Text          xpath:(//input[@type='text'])[2]    Dilwale
     Input Text          xpath:(//input[@type='email'])      akashdilwale@gmail.com
